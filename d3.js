@@ -1,10 +1,10 @@
 
-// Step 1: Add D3 JS library to HTML document
+// 1. adding js library 
 const script = document.createElement('script');
 script.src = 'https://d3js.org/d3.v6.min.js';
 document.head.appendChild(script);
 
-// Step 2: Generate 100 random points within an SVG canvas with height of 500 pixels and width of 500 pixels
+// 2. sizes and 100 random poins 
 const svg = d3.select('body')
   .append('svg')
   .attr('width', 500)
@@ -20,9 +20,9 @@ svg.selectAll('circle')
   .attr('r', 5)
   .attr('fill', 'blue');
 
-// Step 4: Load a titanic.csv dataset as a CSV file using D3 JS
+// 3. install the dataset about the passengers of Titanic
 d3.csv('titanic.csv').then(data => {
-  // Step 5: Generate a pie chart for age distribution for passengers
+  // 4. pie chart itself
   const ageGroups = ['0-20', '20-40', '40-60', '60-80', '80+'];
   const ages = data.map(d => parseInt(d.Age)).filter(d => !isNaN(d));
   const ageCounts = ageGroups.map(group => ages.filter(age => {
