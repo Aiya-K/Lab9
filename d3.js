@@ -18,7 +18,7 @@ svg.selectAll('circle')
   .attr('cx', d => d[0])
   .attr('cy', d => d[1])
   .attr('r', 5)
-  .attr('fill', 'blue');
+  .attr('fill', 'red');
 
 // 3. install the dataset about the passengers of Titanic
 d3.csv('titanic.csv').then(data => {
