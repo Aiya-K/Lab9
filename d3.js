@@ -67,33 +67,3 @@ d3.csv('titanic.csv').then(data => {
     .attr('y', 15)
     .text(d => d);
 });
-
-const xScale = d3.scaleLinear()
-    .domain(d3.extent(randomData, d => +d.Age))
-    .range([0, width]);
-
-  const yScale = d3.scaleLinear()
-    .domain(d3.extent(randomData, d => +d.Fare))
-    .range([height, 0]);
-
-  // Add x and y axis ticks
-  const xAxis = d3.axisBottom(xScale);
-  const yAxis = d3.axisLeft(yScale);
-
-  svg.append('g')
-    .attr('transform', `translate(0, ${height})`)
-    .call(xAxis);
-
-  svg.append('g')
-    .call(yAxis);
-
-  // Add the data points as circles
-  svg.selectAll('circle')
-    .data(randomData)
-    .enter()
-    .append('circle')
-    .attr('cx', d => xScale(+d.Age))
-    .attr('cy', d => yScale(+d.Fare))
-    .attr('r', 5)
-    .attr('fill', 'blue');
-});
